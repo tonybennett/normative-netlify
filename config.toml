@@ -1,0 +1,13 @@
+siteTitle = "Normative"
+linkPrefix = ""
+googleAnalyticsId = "UA-17713937-3"
+xs = 320
+xsMax = 449
+sm = 450
+smMax = 767
+md = 768
+mdMax = 1023
+lg = 1024
+lgMax = 1365
+xl = 1366
+tagline = "We design your future"

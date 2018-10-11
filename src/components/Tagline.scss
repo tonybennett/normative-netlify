@@ -1,0 +1,58 @@
+@import "../global/global";
+
+.tagline {
+  padding: 10px $header-padding-small $header-padding-small;
+
+  @include breakpoint($md-or-sm-landscape) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: $z-index-video + 1;
+  }
+
+  @include breakpoint($ipad) {
+    bottom: 40px;
+  }
+
+  @include breakpoint($lg) {
+    padding: 0 $header-padding-large $header-padding-large - 10;
+  }
+
+  &__headling {
+    font-size: rem-calc(27px);
+    font-weight: 300;
+    line-height: 1.4;
+
+    @include breakpoint($iphone6) {
+      font-size: rem-calc(30px);
+    }
+
+    @include breakpoint($md) {
+      font-size: rem-calc(39px);
+    }
+  }
+
+  &::after {
+    content: '';
+    display: none;
+    width: 60px;
+    height: 1px;
+    margin-top: 1.25rem;
+    background-color: #fff;
+    overflow: hidden;
+
+    .is-home & {
+      @include breakpoint($sm-only $portrait) {
+        display: block;
+      }
+    }
+  }
+
+  .not-home & {
+    display: none;
+  }
+}
+
+.tagline__description {
+  display: none;
+}

@@ -1,0 +1,175 @@
+@import "../global/global";
+
+.section {
+  width: 100%;
+
+  &--fullscreen {
+    @include breakpoint($md) {
+      min-height: calc(100vh - 160px);
+
+      @include breakpoint($portrait) {
+        min-height: auto;
+      }
+    }
+
+    display: flex;
+    align-items: center;
+
+    > * {
+      width: 100%;
+    }
+  }
+
+  &:first-of-type {
+    padding-top: 50px;
+
+    @include breakpoint($lg) {
+      padding-top: 160px;
+    }
+    &.section--fullscreen {
+      @include breakpoint($md) {
+        min-height: calc(100vh - 30px);
+
+        @include breakpoint($portrait) {
+          min-height: auto;
+        }
+      }
+    }
+  }
+}
+
+.section__content {
+  margin: 30px 20px;
+
+  hr {
+    border: none;
+    max-width: 70px;
+    margin: 4rem auto;
+    background-color: #fff;
+    height: 1px;
+    border-top: 1px solid #fff;
+
+    .content & {
+      background-color: #071f2f;
+      border-top-color: #071f2f;
+    }
+  }
+
+  ul {
+    li + li {
+      margin-top: rem-calc(10px);
+    }
+
+    ul {
+      margin-top: rem-calc(10px);
+    }
+  }
+
+  @include breakpoint($md) {
+    margin: 80px 80px;
+  }
+
+  @include breakpoint($lg) {
+    margin: 80px 20px;
+  }
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.section:first-of-type {
+  .section__content {
+    @include breakpoint($lg) {
+      margin: 0 0 60px;
+      margin-top: -40px;
+    }
+  }
+}
+
+.section:last-of-type {
+  .section__content {
+    margin-bottom: 100px;
+  }
+}
+
+.section__photo {
+  @include aspect-ratio(16, 9);
+  background-color: rgba(#000, 0.1);
+}
+
+.section__title {
+  max-width: 840px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  margin-top: 0;
+  font-weight: 300;
+  text-align: center;
+
+  a {
+    border-bottom: 1px solid #fff;
+    line-height: 1;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  @include breakpoint($md) {
+
+    margin-bottom: 3rem;
+  }
+
+  @include breakpoint($lg) {
+    margin-bottom: 4rem;
+  }
+
+  &--small {
+    font-size: rem-calc(24px);
+    margin: 0 20px;
+
+    @include breakpoint($md) {
+      margin: 0 auto;
+      margin-top: 0;
+      font-size: rem-calc(32px);
+    }
+  }
+
+  &--secondary {
+    max-width: 840px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    font-weight: 300;
+    text-align: center;
+
+    @include breakpoint($md) {
+      margin-bottom: 2.8rem;
+    }
+  }
+}
+
+.section__body {
+  max-width: 710px;
+  margin-left: auto;
+  margin-right: auto;
+
+  p {
+    line-height: 1.8;
+  }
+
+  a {
+    text-decoration: underline dotted;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @include breakpoint($lg) {
+    max-width: 660px;
+  }
+}

@@ -1,0 +1,62 @@
+@import "../global/global";
+
+.footer-body {
+  @extend %sans-serif;
+
+  color: #fff;
+  padding: $header-padding-small 0;
+  width: 100%;
+  font-size: rem-calc(14px);
+  line-height: 1.3;
+
+  a {
+    color: #00abcf;
+  }
+
+  @include breakpoint($md) {
+    padding: $header-padding-small;
+  }
+
+  @include breakpoint($lg) {
+    padding: $header-padding-large;
+  }
+}
+
+.footer .footer-body {
+  @include breakpoint($md) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.header .footer-body {
+  display: none;
+}
+
+.show-menu .header .footer-body {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: $header-padding-small;
+  z-index: $z-index-header;
+
+  @include breakpoint($md) {
+    left: 0;
+  }
+}
+
+.footer-body__contact {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.footer-body__address {
+  margin: 1rem 0;
+}
+
+.footer-body__copy {
+  font-size: rem-calc(12px);
+  font-weight: 500;
+  line-height: 1;
+}

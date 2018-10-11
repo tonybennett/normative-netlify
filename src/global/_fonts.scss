@@ -1,0 +1,196 @@
+/* Colfax Web Thin */
+// @font-face {
+//   font-family: 'ColfaxWeb';
+//   src: url('../assets/fonts/colfax/ColfaxWebThin/ColfaxWebThin.woff2') format('woff2'), url('../assets/fonts/colfax/ColfaxWebThin/ColfaxWebThin.woff') format('woff');
+//   font-weight: 200;
+//   font-style: normal;
+// }
+
+/* Colfax Web Thin Italic */
+// @font-face {
+//   font-family: 'ColfaxWeb';
+//   src: url('../assets/fonts/colfax/ColfaxWebThinItalic/ColfaxWebThinItalic.woff2') format('woff2'), url('../assets/fonts/colfax/ColfaxWebThinItalic/ColfaxWebThinItalic.woff') format('woff');
+//   font-weight: 200;
+//   font-style: italic;
+// }
+
+/* Colfax Web Light */
+@font-face {
+  font-family: 'ColfaxWeb';
+  src: url('../assets/fonts/colfax/ColfaxWebLight/ColfaxWebLight.woff2') format('woff2'), url('../assets/fonts/colfax/ColfaxWebLight/ColfaxWebLight.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Colfax Web Light Italic */
+// @font-face {
+//   font-family: 'ColfaxWeb';
+//   src: url('../assets/fonts/colfax/ColfaxWebLightItalic/ColfaxWebLightItalic.woff2') format('woff2'), url('../assets/fonts/colfax/ColfaxWebLightItalic/ColfaxWebLightItalic.woff') format('woff');
+//   font-weight: 300;
+//   font-style: italic;
+// }
+
+/* Colfax Web Regular */
+@font-face {
+  font-family: 'ColfaxWeb';
+  src: url('../assets/fonts/colfax/ColfaxWebRegular/ColfaxWebRegular.woff2') format('woff2'), url('../assets/fonts/colfax/ColfaxWebRegular/ColfaxWebRegular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Colfax Web Regular Italic */
+// @font-face {
+//   font-family: 'ColfaxWeb';
+//   src: url('../assets/fonts/colfax/ColfaxWebRegularItalic/ColfaxWebRegularItalic.woff2') format('woff2'), url('../assets/fonts/colfax/ColfaxWebRegularItalic/ColfaxWebRegularItalic.woff') format('woff');
+//   font-weight: 400;
+//   font-style: italic;
+// }
+
+/* Colfax Web Medium */
+@font-face {
+  font-family: 'ColfaxWeb';
+  src: url('../assets/fonts/colfax/ColfaxWebMedium/ColfaxWebMedium.woff2') format('woff2'), url('../assets/fonts/colfax/ColfaxWebMedium/ColfaxWebMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Colfax Web Medium Italic */
+// @font-face {
+//   font-family: 'ColfaxWeb';
+//   src: url('../assets/fonts/colfax/ColfaxWebMediumItalic/ColfaxWebMediumItalic.woff2') format('woff2'), url('../assets/fonts/colfax/ColfaxWebMediumItalic/ColfaxWebMediumItalic.woff') format('woff');
+//   font-weight: 500;
+//   font-style: italic;
+// }
+
+/* Colfax Web Bold */
+@font-face {
+  font-family: 'ColfaxWeb';
+  src: url('../assets/fonts/colfax/ColfaxWebBold/ColfaxWebBold.woff2') format('woff2'), url('../assets/fonts/colfax/ColfaxWebBold/ColfaxWebBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Colfax Web Bold Italic */
+// @font-face {
+//   font-family: 'ColfaxWeb';
+//   src: url('../assets/fonts/colfax/ColfaxWebBoldItalic/ColfaxWebBoldItalic.woff2') format('woff2'), url('../assets/fonts/colfax/ColfaxWebBoldItalic/ColfaxWebBoldItalic.woff') format('woff');
+//   font-weight: 700;
+//   font-style: italic;
+// }
+
+/* Colfax Web Black */
+// @font-face {
+//   font-family: 'ColfaxWeb';
+//   src: url('../assets/fonts/colfax/ColfaxWebBlack/ColfaxWebBlack.woff2') format('woff2'), url('../assets/fonts/colfax/ColfaxWebBlack/ColfaxWebBlack.woff') format('woff');
+//   font-weight: 900;
+//   font-style: normal;
+// }
+
+/* Colfax Web Black Italic */
+// @font-face {
+//   font-family: 'ColfaxWeb';
+//   src: url('../assets/fonts/colfax/ColfaxWebBlackItalic/ColfaxWebBlackItalic.woff2') format('woff2'), url('../assets/fonts/colfax/ColfaxWebBlackItalic/ColfaxWebBlackItalic.woff') format('woff');
+//   font-weight: 900;
+//   font-style: italic;
+// }
+
+/* Merriweather Sans Light Regular */
+@font-face {
+  font-family: 'MerriweatherSans';
+  src: url('../assets/fonts/merriweather-sans/merriweathersans-light-webfont.woff2') format('woff2'), url('../assets/fonts/merriweather-sans/merriweathersans-light-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'MerriweatherSans';
+    src: url('../assets/fonts/merriweather-sans/merriweathersans-bold-webfont.woff2') format('woff2'),
+         url('../assets/fonts/merriweather-sans/merriweathersans-bold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+
+}
+//
+//
+//
+//
+// @font-face {
+//     font-family: 'merriweather_sansbold_italic';
+//     src: url('merriweathersans-bolditalic-webfont.woff2') format('woff2'),
+//          url('merriweathersans-bolditalic-webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+//
+// }
+//
+//
+//
+//
+// @font-face {
+//     font-family: 'merriweather_sansextrabold';
+//     src: url('merriweathersans-extrabold-webfont.woff2') format('woff2'),
+//          url('merriweathersans-extrabold-webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+//
+// }
+//
+//
+//
+//
+// @font-face {
+//     font-family: 'merriweather_sansXBdIt';
+//     src: url('merriweathersans-extrabolditalic-webfont.woff2') format('woff2'),
+//          url('merriweathersans-extrabolditalic-webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+//
+// }
+//
+//
+//
+//
+// @font-face {
+//     font-family: 'merriweather_sansitalic';
+//     src: url('merriweathersans-italic-webfont.woff2') format('woff2'),
+//          url('merriweathersans-italic-webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+//
+// }
+//
+//
+//
+//
+// @font-face {
+//     font-family: 'merriweather_sanslight';
+//     src: url('merriweathersans-light-webfont.woff2') format('woff2'),
+//          url('merriweathersans-light-webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+//
+// }
+//
+//
+//
+//
+// @font-face {
+//     font-family: 'merriweather_sanslight_italic';
+//     src: url('merriweathersans-lightitalic-webfont.woff2') format('woff2'),
+//          url('merriweathersans-lightitalic-webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+//
+// }
+//
+//
+//
+//
+// @font-face {
+//   font-family: 'merriweather_sansregular';
+//   src: url('merriweathersans-regular-webfont.woff2') format('woff2'),
+//        url('merriweathersans-regular-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+// }

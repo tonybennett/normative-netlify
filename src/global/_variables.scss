@@ -1,0 +1,89 @@
+// Z-index
+$z-index-video: 10;
+$z-index-footer: $z-index-video + 100;
+
+$z-index-base: 1000;
+$z-index-header: $z-index-base + 500;
+
+// Breakpoints
+//! Be sure to update these in process.env.GATSBY_toml
+$xs: 320px;
+$sm: 450px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1366px;
+
+$iphone6: 375px;
+
+$ipad-pro: (device-width 1024px) (device-height 1366px);
+
+$ipad: (device-width 768px) (device-height 1024px), $ipad-pro;
+
+$md-or-sm-landscape: $md, $sm (orientation landscape);
+
+$landscape: (orientation landscape);
+$portrait: (orientation portrait);
+
+$min-height: min-height 450px;
+
+$xs-only: 0 $sm - 1;
+$sm-only: 0 $md - 1;
+$md-only: $md $lg - 1;
+$lg-only: $lg $xl - 1;
+
+// Colors
+$brand-1: #e03011;
+$brand-2: #de2869;
+$brand-3: #b041d9;
+$brand-4: #9547f5;
+$brand-5: #6c62ee;
+$brand-6: #00819c;
+$brand-7: #008099;
+$brand-8: #f13c6d;
+$brand-9: #e2174f;
+$brand-dark: #071f2f;
+
+// Typography
+$base-font-size: 16px;
+$font-family-sans-serif: "ColfaxWeb", sans-serif;
+$font-family-sans-serif-alt: "MerriweatherSans", serif;
+$font-family-serif: "Cardo", serif;
+
+// Themes
+$themes: (
+  what-we-do: $brand-6,
+  about-us: $brand-5,
+  careers: #b041d9,
+  contact-us: $brand-9,
+  matthew: $brand-5,
+  content: #fff,
+  inspiren: #423bd1
+);
+
+$themes-nav: (
+  what-we-do: #00abcf,
+  about-us: #867dff,
+  careers: #c26ce1,
+  news: #e16ca8,
+  contact-us: #ec5780,
+  matthew: #867dff,
+  content: #f9f9f9,
+  inspiren: #f9f9f9
+);
+
+$themes-dark: (
+  what-we-do: #004958,
+  about-us: #4138bd,
+  careers: #8722ab,
+  contact-us: #9d1037,
+  matthew: #4138bd,
+  content: #c4c9cd,
+  inspiren: #2923a9
+);
+
+// Easing
+$ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+// Header/Footer
+$header-padding-small: 20px;
+$header-padding-large: 60px;

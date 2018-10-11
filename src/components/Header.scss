@@ -1,0 +1,414 @@
+@import "../global/global";
+
+$translateX-from: -37px;
+
+@mixin absolute-top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.header,
+.footer {
+  padding: 0 $header-padding-small;
+
+  button {
+    background-color: transparent;
+  }
+
+  @include breakpoint($lg) {
+    padding: 0 $header-padding-large;
+  }
+
+  // At md+ or when not on home page, absolute position header
+  @include breakpoint($md-or-sm-landscape) {
+    @include absolute-top-left;
+  }
+
+  .not-home & {
+    &.header {
+      @include absolute-top-left;
+    }
+  }
+
+  // a.active {
+  //   opacity: 0.3;
+  //   cursor: default;
+  //   pointer-events: none;
+  // }
+}
+
+.header__content {
+  z-index: $z-index-header;
+
+  // At md+ or when not on home page, relative position header content to allow for inner positioning
+  .not-home & {
+    position: relative;
+  }
+
+  @include breakpoint($md-or-sm-landscape) {
+    position: relative;
+  }
+}
+
+// Mask is a block element for backdrop clicks
+.header__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $brand-dark;
+  z-index: $z-index-header - 1;
+  display: none;
+
+  .show-menu & {
+    display: block;
+  }
+}
+
+// On mobile only, header (home) and footer (not home), absolute
+.is-home .header__top,
+.not-home .footer__top {
+  @include breakpoint($sm-only $portrait) {
+    position: absolute;
+    top: 0;
+    left: $header-padding-small;
+    z-index: $z-index-header;
+  }
+}
+
+// When menu is shown, pad top of header
+.show-menu .header__top {
+  @include breakpoint($sm-only $portrait) {
+    padding-bottom: 10px;
+  }
+}
+
+.header__logo,
+.footer__logo {
+  display: inline-block;
+  width: 126px;
+  height: 21px;
+  vertical-align: top;
+  outline: none;
+  margin-top: $header-padding-small - 1;
+  transform: translateZ(0);
+
+  @include breakpoint($lg) {
+    width: 138px;
+    height: 23px;
+    margin-top: $header-padding-large;
+  }
+
+  svg {
+    display: block;
+    fill: #fff;
+
+    .content & {
+      fill: #061f26;
+    }
+
+    .show-menu & {
+      fill: #fff;
+    }
+  }
+}
+
+.header__navigation,
+.footer__navigation {
+  @extend %sans-serif;
+  padding: 5px 0 20px;
+
+  @include breakpoint($lg) {
+    padding: 20px 0;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-bottom: 0;
+      font-size: rem-calc(24px);
+      will-change: transform, opacity;
+
+      @include breakpoint($md-or-sm-landscape) {
+        font-size: rem-calc(30px);
+        margin-bottom: 0.25rem;
+      }
+
+      a {
+        transition: color 0.15s;
+        @each $section, $color in $themes-nav {
+          &.#{$section} {
+            color: $color;
+          }
+        }
+
+        &:hover {
+          color: #fff;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+
+      &.navigation__secondary {
+        font-size: rem-calc(16px);
+        margin-bottom: 0.25rem;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Animations for header
+.not-mounted.is-home .header,
+.not-mounted.not-home .header,
+.is-mounted.not-home .header,
+.footer-nav-enter {
+  li {
+    opacity: 0;
+    transform: translateX($translateX-from);
+  }
+}
+
+// Stagger slide in of menu
+.is-mounted.is-home .header,
+.is-mounted.show-menu .header,
+.footer-nav-enter.footer-nav-enter-active {
+  li {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.25s $ease-out, transform 0.25s $ease-out;
+    transition-delay: 0.5s;
+  }
+
+  @for $i from 1 through 6 {
+    li:nth-of-type(#{$i}) {
+      transition-delay: ($i * 0.1s) + 0.4s;
+
+      @include breakpoint($sm-only $portrait) {
+        transition-delay: ($i * 0.1s) + 0.6s;
+      }
+    }
+  }
+}
+
+// On show menu, lower delay on showing items
+.is-mounted.show-menu .header {
+  li {
+    transition-delay: 0.1s;
+  }
+
+  @for $i from 1 through 6 {
+    li:nth-of-type(#{$i}) {
+      transition-delay: ($i * 0.1s);
+    }
+  }
+}
+
+// On inner pages, hide navigation using width/height to keep possibility of animating re-appearance
+.not-home:not(.show-menu) .header {
+  .header__navigation {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+// On splash page loading, animate logo and tagline
+.is-home {
+  &.not-mounted,
+  &.is-mounted {
+    .header__logo,
+    .tagline {
+      opacity: 0;
+      transform: translateX($translateX-from) translateZ(0);
+    }
+  }
+
+  &.is-mounted {
+    .header__logo,
+    .tagline {
+      opacity: 1;
+      transform: translateX(0) translateZ(0);
+      transition: opacity 0.25s $ease-out, transform 0.25s $ease-out;
+      transition-delay: 0.25s;
+    }
+
+    .tagline {
+      transition-delay: 0.5s;
+
+      @include breakpoint($md-or-sm-landscape) {
+        transition-delay: 1s;
+      }
+    }
+  }
+}
+
+// Footer animations
+.footer-logo-enter {
+  opacity: 0;
+  transform: translateX($translateX-from);
+}
+
+.footer-logo-enter.footer-logo-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.25s $ease-out, transform 0.25s $ease-out;
+  transition-delay: 0.5s;
+}
+
+// Burger
+.header__burger {
+  width: 0;
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 2px;
+  transition: width 0.25s ease-out;
+  transition-delay: 0.3s;
+  will-change: width;
+
+  @include breakpoint($md-or-sm-landscape) {
+    height: 50px;
+  }
+}
+
+// Footer placeholder - needed for placement
+.footer__burger__placeholder {
+  width: 0;
+  height: 40px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 2px;
+
+  @include breakpoint($md-or-sm-landscape) {
+    height: 50px;
+  }
+}
+
+// Setup defaults for burger icon, including hiding it and animating it
+.header__burger__icon {
+  position: absolute;
+  top: $header-padding-small + 1;
+  transform: translateZ(0);
+
+  @include breakpoint($lg) {
+    position: fixed;
+    top: $header-padding-large + 4;
+  }
+
+  button {
+    color: #fff;
+    border: 0;
+    width: 0;
+    height: 14px;
+    overflow: hidden;
+    text-indent: 200%;
+    border-top: 2px solid currentColor;
+    position: relative;
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+    appearance: none;
+    transition: width 0.25s ease-out;
+    transition-delay: 0.3s;
+    outline: none;
+    opacity: 0.7;
+    will-change: width;
+    border-radius: 0;
+
+    @include breakpoint($lg) {
+      height: 16px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:focus {
+      opacity: 0.7;
+    }
+
+    .hide-burger & {
+      transition-delay: 0s;
+      transition-duration: 0.15s;
+    }
+
+    .content & {
+      color: #061f26;
+    }
+
+    .show-menu & {
+      color: #fff;
+    }
+
+    .line1,
+    .line2 {
+      content: "";
+      width: 0;
+      height: 2px;
+      background-color: currentColor;
+      left: 0;
+      position: absolute;
+      transition: width 0.3s ease-out;
+      overflow: hidden;
+      will-change: width;
+    }
+
+    .line1 {
+      top: 4px;
+      transition-delay: 0.4s;
+
+      .hide-burger & {
+        transition-delay: 0.1s;
+      }
+
+      @include breakpoint($lg) {
+        top: 5px;
+      }
+    }
+
+    .line2 {
+      bottom: 0;
+      transition-delay: 0.5s;
+
+      .hide-burger & {
+        transition-delay: 0.2s;
+      }
+    }
+  }
+}
+
+// Show burger when not on home
+.not-home.show-burger {
+  .header__burger {
+    width: 34px;
+  }
+
+  .header__burger__icon {
+    button {
+      width: 19px;
+
+      @include breakpoint($lg) {
+        width: 18px;
+      }
+
+      .line1,
+      .line2 {
+        width: 100%;
+      }
+    }
+  }
+}

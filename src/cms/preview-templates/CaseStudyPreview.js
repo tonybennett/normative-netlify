@@ -5,8 +5,6 @@ import { CaseStudyTemplate } from "../../templates/case-study";
 const CaseStudyPreview = ({ entry, widgetFor }) => (
   <CaseStudyTemplate
     content={widgetFor("body")}
-    description={entry.getIn(["data", "description"])}
-    tags={entry.getIn(["data", "tags"])}
     title={entry.getIn(["data", "title"])}
   />
 );

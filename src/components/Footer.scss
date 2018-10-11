@@ -1,0 +1,33 @@
+@import "../global/global";
+
+//! See header.scss for common navigation/logo/transition styles
+
+.footer {
+  @include clearfix;
+  // position: relative;
+  z-index: $z-index-footer;
+  display: none;
+  background-color: $brand-dark;
+  width: 100%;
+
+  @include breakpoint($md-or-sm-landscape) {
+    min-height: 100vh;
+    background-color: transparent;
+  }
+}
+
+.not-home {
+  .footer {
+    display: block;
+  }
+}
+
+.footer__waypoint-top {
+  position: absolute;
+  top: 35vh;
+}
+
+.footer__waypoint-bottom {
+  position: absolute;
+  bottom: 20vh;
+}

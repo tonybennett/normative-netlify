@@ -1,0 +1,15 @@
+[class^="visible"] {
+  display: none;
+}
+
+.visible-md {
+  @include breakpoint($md) {
+    display: block;
+  }
+}
+
+.visible-lg {
+  @include breakpoint($lg) {
+    display: block;
+  }
+}

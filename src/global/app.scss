@@ -1,0 +1,93 @@
+@import "../../node_modules/sanitize.css/sanitize";
+@import "global";
+@import "fonts";
+@import "typography";
+@import "links";
+@import "sticky";
+@import "responsive";
+
+body {
+  background-color: $brand-dark;
+}
+
+.normative {
+  @include clearfix;
+  background-color: $brand-dark;
+  position: relative;
+  min-height: 100vh;
+  will-change: background-color;
+
+  &.not-home {
+    transition: background-color 0.4s ease-out;
+  }
+
+  @each $section, $color in $themes {
+    &.#{$section} {
+      background-color: rgba($color, 1);
+    }
+  }
+
+  &.content {
+    color: #071f2f;
+
+    .section__body {
+      a {
+        border-bottom: 1px solid currentColor;
+        color: #071f2f;
+
+        &:hover {
+          border-bottom-color: rgba(#071f2f, 0.4);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  &.is-mounted.not-loading {
+    @each $section, $color in $themes {
+      &.#{$section} {
+        animation: $section 0.4s ease-out;
+      }
+    }
+  }
+
+  &.is-mounted.dim-page {
+    @each $section, $color in $themes {
+      &.#{$section} {
+        $newColor: map-get($themes-dark, $section);
+        animation: none;
+        background-color: rgba($newColor, 1);
+      }
+    }
+  }
+
+  &.lock-scrolling {
+    @include lock-scrolling;
+  }
+}
+
+@each $section, $color in $themes {
+  @keyframes #{$section} {
+    $newColor: map-get($themes-dark, $section);
+    0% {
+      background-color: rgba($newColor, 1);
+    }
+
+    100% {
+      background-color: rgba($color, 1);
+    }
+  }
+}
+
+@each $section, $color in $themes {
+  @keyframes #{$section + '-reverse'} {
+    $newColor: map-get($themes-dark, $section);
+    0% {
+      background-color: rgba($color, 1);
+    }
+
+    100% {
+      background-color: rgba($newColor, 1);
+    }
+  }
+}
