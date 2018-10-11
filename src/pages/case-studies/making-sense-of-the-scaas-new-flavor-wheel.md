@@ -1,5 +1,5 @@
 ---
 templateKey: case-study
-title: Inspiren2
+title: Inspiren3
 ---
 Lorem
